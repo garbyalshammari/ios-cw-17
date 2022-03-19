@@ -9,8 +9,11 @@ import SwiftUI
 
 
 // يجب عمل هيكل وكائنات من الهيكل
-
-
+var people = [
+    UserCovidinfo(fullname: "ahmed Alshammari", area: "غرناطة", numberofdoses: 2),
+    UserCovidinfo(fullname: "Nasser Alkhaldi", area: "كيفان", numberofdoses: 3),
+  UserCovidinfo(fullname: "Taleb Ali", area: "سعدالعبدالله", numberofdoses: 2)
+]
 struct ContentView: View {
     var body: some View {
         ZStack{
@@ -25,38 +28,23 @@ struct ContentView: View {
                     .font(.system(size: 30, weight: .bold, design: .default))
                     .padding()
                 // name of new cases
+                ForEach(people, id: \.id) { i in
                 VStack{
         // الحالة الأولى
                 // الاسم
-               Text("")
+                    Text("\(i.fullname)")
+                
 // المنطقة
-                Text("")
+                Text("\(i.area)")
                     // عدد الجرعات
-               Text("")
-
-                Divider()
+               Text("\(i.numberofdoses)")
+                    Divider()
                 }
-                VStack{
-        // الحالة الثانية
-                // الاسم
-               Text("")
-                // المنطقة
-               Text("")
-    // عدد الجرعات
-               Text("")
-
-                Divider()
-                }
-                VStack{
-              // الحالة الثالثة
-                      // الاسم
-                     Text("")
-                      // المنطقة
-                     Text("")
-          // عدد الجرعات
-                     Text("")
+               
                 }
                 Spacer()
+                        
+           
                 HStack{
                     Text("آخر تحديث ١٥-٣-٢٠٢٢")
                         .font(.system(size: 20, weight: .bold, design: .default))
@@ -70,16 +58,18 @@ struct ContentView: View {
             }
         }
     }
-}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
+        }
 
+                                    
 
-
+    
 
 
 
